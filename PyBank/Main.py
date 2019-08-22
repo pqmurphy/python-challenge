@@ -39,3 +39,6 @@ print(f"Total Months: {months}")
 print(f"Total: ${totalin}")
 print(f"Greatest Increase in Profits: {montharr[GrIncInd]} (${GrInc})")
 print(f"Greatest Decrease in Profits: {montharr[GrDecInd]} (${GrDec})")
+
+printfile = open("analysis.txt", "w+")
+printfile.write(f"Financial Analysis\n ------------------\nTotal Months: {months}\nTotal: ${totalin}\nGreatest Increase in Profits: {montharr[GrIncInd]} (${GrInc})\nGreatest Decrease in Profits: {montharr[GrDecInd]} (${GrDec})")
