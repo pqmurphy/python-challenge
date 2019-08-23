@@ -1,6 +1,7 @@
 # Perform Imports
 import csv
 import decimal
+import sys, os
 
 # Set Variables
 votes = 0
@@ -12,7 +13,8 @@ percentages = []
 bad = 0
 
 # Get File
-csvpath = "/Users/patrickmurphy/Documents/Northwestern/Python/PyPoll/election_data.csv"
+dirpath = os.path.dirname(sys.argv[0])
+csvpath = os.path.abspath(dirpath)+"/election_data.csv"
 
 # Get Votes
 with open(csvpath, newline = '') as csvfile:

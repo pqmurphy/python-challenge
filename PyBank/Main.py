@@ -1,4 +1,6 @@
+# Perform Imports
 import csv
+import os, sys
 
 # Set Variables
 months = 0
@@ -8,7 +10,8 @@ diffs = []
 montharr = []
 
 # Set file path
-csvpath = "/Users/patrickmurphy/Documents/Northwestern/Python/PyBank/budget_data.csv"
+dirpath = os.path.dirname(sys.argv[0])
+csvpath = os.path.abspath(dirpath)+"/budget_data.csv"
 
 # Open file
 
@@ -17,8 +20,6 @@ with open(csvpath, newline = '') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csvheader = next(csvreader)
-
-    #print(f"CSV Header: {csvheader}")
 
     for row in csvreader:
         totals.append(int(row[1]))
@@ -41,4 +42,4 @@ print(f"Greatest Increase in Profits: {montharr[GrIncInd]} (${GrInc})")
 print(f"Greatest Decrease in Profits: {montharr[GrDecInd]} (${GrDec})")
 
 printfile = open("analysis.txt", "w+")
-printfile.write(f"Financial Analysis\n ------------------\nTotal Months: {months}\nTotal: ${totalin}\nGreatest Increase in Profits: {montharr[GrIncInd]} (${GrInc})\nGreatest Decrease in Profits: {montharr[GrDecInd]} (${GrDec})")
+printfile.write(f"Financial Analysis\n------------------\nTotal Months: {months}\nTotal: ${totalin}\nGreatest Increase in Profits: {montharr[GrIncInd]} (${GrInc})\nGreatest Decrease in Profits: {montharr[GrDecInd]} (${GrDec})")
